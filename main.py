@@ -16,14 +16,12 @@ def generate_openai(user_prompt):
 
 
 
-
 def generate_gemini(user_prompt):
     client = genai.Client(api_key=geminiApiKey)
     response = client.models.generate_content(
         model="gemini-2.0-flash", contents=user_prompt
     )
     return response.text
-
 
 
 
