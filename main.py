@@ -4,9 +4,7 @@ from google import genai
 
 
 def generate_openai(user_prompt):
-
     client = openai.OpenAI(api_key=openaiApiKey)
-    
     response = client.chat.completions.create(
         model = "gpt-4o-mini", 
         messages = [
@@ -14,25 +12,17 @@ def generate_openai(user_prompt):
             {"role": "user", "content": user_prompt},
         ]
     )
-
     return response.choices[0].message.content
 
 
+
+
 def generate_gemini(user_prompt):
-
     client = genai.Client(api_key=geminiApiKey)
-
     response = client.models.generate_content(
         model="gemini-2.0-flash", contents=user_prompt
     )
-
     return response.text
-
-
-
-
-
-
 
 
 
